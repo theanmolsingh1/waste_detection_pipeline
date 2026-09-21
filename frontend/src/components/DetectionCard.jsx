@@ -1,0 +1,2 @@
+const pretty = value => value.replaceAll('_', ' ').replace(/\b\w/g, c => c.toUpperCase())
+export default function DetectionCard({ detection }) { return <article className="detection-card"><strong>{pretty(detection.waste_type)}</strong><span>{Math.round(detection.confidence * 100)}%</span><small>{detection.latitude.toFixed(4)}, {detection.longitude.toFixed(4)}</small><small>{new Date(detection.timestamp).toLocaleString()} · {detection.alert_sent ? 'Alert sent' : 'Stored'}</small>{detection.is_demo && <em>Demo/mock</em>}</article> }

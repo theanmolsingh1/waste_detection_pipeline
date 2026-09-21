@@ -1,0 +1,1 @@
+export default function CameraFeed() { return <section className="panel camera"><h2>Live camera</h2><img src="http://localhost:8000/api/camera/stream" alt="Live camera stream (start a camera to view)" /><p>Camera unavailable? Use <code>python scripts/run_demo.py</code> to exercise the complete mock pipeline.</p></section> }

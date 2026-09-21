@@ -1,0 +1,3 @@
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+export default function PollutionMap({ detections }) { const center = detections.length ? [detections[0].latitude, detections[0].longitude] : [12.9716,77.5946]; return <section className="panel map"><h2>Pollution hotspot map</h2><MapContainer center={center} zoom={13} scrollWheelZoom={false}><TileLayer attribution="© OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{detections.map(d => <Marker key={d.id} position={[d.latitude,d.longitude]}><Popup><b>{d.waste_type.replaceAll('_',' ')}</b><br/>{Math.round(d.confidence*100)}%<br/>{new Date(d.timestamp).toLocaleString()}</Popup></Marker>)}</MapContainer></section> }
